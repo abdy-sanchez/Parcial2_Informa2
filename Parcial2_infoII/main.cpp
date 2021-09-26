@@ -1,12 +1,10 @@
-#include <iostream>
-#include <QImage>
-#include <string>
-using namespace std;
+#include "objeto_imagen.h"
+
 
 int main()
 {
 
-    QImage imagen ;
+    objeto_imagen imagen ;
 
     string base_direccion, nombre_imagen ;
 
@@ -29,6 +27,9 @@ int main()
     if( flag ){
 
        cout << " [Imagen Correctamente Cargada]" << endl ;
+
+       imagen.obtener_informcion() ;
+
 
     }else{
 
