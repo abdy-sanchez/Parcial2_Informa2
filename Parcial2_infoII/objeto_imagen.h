@@ -26,6 +26,8 @@ public:
 
     void Escribir_RGB();
 
+    void Rellenar();
+
 private:
 
    vector < vector < RGB > > Lista_pixeles ;

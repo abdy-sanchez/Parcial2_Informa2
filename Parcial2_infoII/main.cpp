@@ -49,7 +49,11 @@ int main()
 
            cout << endl << " Sobre Muestreo" << endl << endl ;
 
-            //imagen.Sobre_Muestreo() ;
+            imagen.Rellenar() ;
+
+            imagen.Sobre_Muestreo() ;
+
+            imagen.Escribir_RGB() ;
 
            }break;
 

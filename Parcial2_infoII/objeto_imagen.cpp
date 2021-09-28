@@ -191,29 +191,70 @@ void objeto_imagen::Sub_Muestreo(){
 
 
 
-/*void objeto_imagen::Sobre_Muestreo(){
+void objeto_imagen::Sobre_Muestreo(){
 
-    for( Iterador_LP = Lista_pixeles.begin() ; Iterador_LP != Lista_pixeles.end() ; Iterador_LP++ ){
+    int limX = 0, x1 = 0, y1 = 0 ;
 
-        colores = new RGB ;
+    for( int y = 0 ; y < height() ; y++ ){
 
-        colores->Red = Iterador_LP->Red ;
 
-        colores->Green = Iterador_LP->Green ;
+        for( int x = 0 ; x < width() ; x++ ){
 
-        colores->Blue = Iterador_LP->Blue ;
 
-        for( int cont = 1 ; cont <= tam_repre_px ; cont++ ){
+            colores = new RGB ;
 
-            Redimension.push_back( *colores ) ;
+            colores->Red = Lista_pixeles[y][x].Red ;
+
+            colores->Green = Lista_pixeles[y][x].Green ;
+
+            colores->Blue = Lista_pixeles[y][x].Blue ;
+
+            for( int pY = 0 ; pY < RPY ; pY++ ){
+
+                for( int pX = 0 ; pX < RPX ; pX++ ){
+
+
+                    Redimension[pY+y1][pX+x1].Red = colores->Red  ;
+
+                    Redimension[pY+y1][pX+x1].Green = colores->Green  ;
+
+                    Redimension[pY+y1][pX+x1].Blue = colores->Blue  ;
+
+                }
+
+                limX++ ;
+
+
+
+            }//fin for fuera
+
+            if( limX == RPX ){
+
+                x1 = x1 + RPX ;
+
+                limX = 0 ;
+
+                if( x1 == 16 ){
+
+                    y1 = y1 + RPY ;
+
+                    x1 = 0 ;
+                }
+
+            }
+
+            delete colores ;
+
 
         }
 
-        delete colores ;
 
-    }
+    }//fin for fuera
 
-}*/
+
+}
+
+
 
 void objeto_imagen::Escribir_RGB(){
 
@@ -238,5 +279,33 @@ void objeto_imagen::Escribir_RGB(){
     }
 
 
+
+}
+
+void objeto_imagen::Rellenar(){
+
+    for( int f = 0 ; f < 16 ; f++ ){
+
+        for( int c = 0 ; c < 16 ; c++ ){
+
+            colores = new RGB ;
+
+            colores->Red = 1 ;
+
+            colores->Green = 1 ;
+
+            colores->Blue = 1 ;
+
+            pixel.push_back( *colores ) ;
+
+            delete  colores ;
+
+        }
+
+        Redimension.push_back( pixel ) ;
+
+        pixel.clear() ;
+
+    }
 
 }
