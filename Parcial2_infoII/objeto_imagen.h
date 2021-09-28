@@ -4,7 +4,8 @@
 #include <iostream>
 #include <QImage>
 #include <string>
-#include <list>
+#include <vector>
+
 using namespace std;
 
 struct RGB ;
@@ -17,13 +18,27 @@ public:
 
     void obtener_informcion() ;
 
+    int comparacion_pixeles( int px, int py );
+
+    void Sub_Muestreo() ;
+
+    void Sobre_Muestreo() ;
+
+    void Escribir_RGB();
+
 private:
 
-   list < RGB > Lista_pixeles ;
+   vector < vector < RGB > > Lista_pixeles ;
 
-   list < RGB >::iterator Iterador_LP ;
+   vector < vector < RGB > > Redimension ;
+
+   vector < RGB > pixel ;
 
    RGB *colores ;
+
+   int tam_repre_px, RPX, RPY ;
+
+
 
 };
 

@@ -1,6 +1,7 @@
 #include "objeto_imagen.h"
 
 
+
 int main()
 {
 
@@ -30,6 +31,34 @@ int main()
 
        imagen.obtener_informcion() ;
 
+       int n = imagen.comparacion_pixeles( 16, 16 ) ;
+
+       switch( n ){
+
+           case 0 :{
+
+            cout << endl << " Sub Muestreo" << endl << endl ;
+
+            imagen.Sub_Muestreo();
+
+            imagen.Escribir_RGB() ;
+
+           }break;
+
+           case 1:{
+
+           cout << endl << " Sobre Muestreo" << endl << endl ;
+
+            //imagen.Sobre_Muestreo() ;
+
+           }break;
+
+           case 2 :{
+           cout << " Iguales" << endl ;
+           }break;
+
+       }
+
 
     }else{
 
@@ -37,6 +66,7 @@ int main()
 
     }
 
-    cout << endl ;
+    cout << endl ;   
+
     return 0;
 }
